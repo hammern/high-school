@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="gradiant">
+			<img style="z-index: -1; position: relative; width: 100vw;" src="/static/images/Picture_of_Us.png">
+		</div>
+		<div class="Translucent_Black_Square">
+			<p class="Watch_Together">Watch Together</p>
+			<p class="Listen_Together">Listen Together</p>
+			<p class="Enjoy_Together">Enjoy Together</p>
+			<p class="Watch_YouTube_videos">Watch YouTube videos<br/>together with your friends!</p>
+			<button type="button" class="Create_Room_Button rounded-pill" onclick="CreateRoom()">Create Room</button>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" style="margin-top: 1%;">
+	<div class="row">
+		<div class="col" style="margin-left: 10vw; margin-bottom: 0.5vw;">
+			<div class="remote_gradiant">
+				<img style="z-index: -1; position: relative; max-width: 100%;" src="/static/images/Remote_Picture.png">
+			</div>
+		</div>
+		<div class="col" style="margin-right: 5vw;">
+			<div class="Behind_About_us">
+				<p class="About_Us">About Us</p>
+				<div class="Line"></div>
+				<p class="Our_goal_is_to_help">
+					Our goal is to help you have fun with your friends.<br><br>
+					In our website you can create or join a room.<br>
+					While in a room, you can share videos and watch them together with your friends.<br><br><br>
+					During 2020, the Covid-19 Virus took over our lives and made us stay at home.<br/>
+					All the lockdowns and quarantines left us stranded without the ability<br>
+					to meet up with all of our friends.<br><br>
+					Our goal is to allow you and the people you care about to spend time together<br>
+					and have fun together watching videos to pass time during this crazy time.
+				</p>
+				<p class="So_What_are_you_waiting_for">So, what are you waiting for?</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script>
+var socket = io();
+socket.on('Join Room', function(roomId) {
+	window.location.href = "/rooms/" + roomId;
+	document.cookie = "roomId=" + roomId + "; path=/rooms"
+});
+
+function CreateRoom() {
+	socket.emit('Create Room');
+}
+</script>
+{% endblock %}

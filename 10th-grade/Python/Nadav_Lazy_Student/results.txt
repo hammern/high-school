@@ -1,0 +1,10 @@
+1 + 1 = 2
+ = illegal exercise
+3+3 = illegal exercise
+2 / 0 = illegal exercise
+5 / 2 = 2.5
+a / b = illegal exercise
+7-3 = illegal exercise
+10 a 9 = illegal exercise
+6 * 9 = 54
+10+ 5 = illegal exercise

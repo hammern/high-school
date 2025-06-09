@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ title }} {{ location }}</title>
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ location }}</h1>
+
+    {% if countries[location] is defined and countries[location]|length > 0 %}
+
+        {% for item in countries[location] %}
+            <img src="/static/{{item.flag}}.png">  {{item.name}}<br>
+        {% endfor %}
+
+    {% else %}
+
+        <h1>No Countries</h1>
+
+    {% endif %}
+
+{% endblock %}

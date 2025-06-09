@@ -1,0 +1,12 @@
+Joe,password123
+Mary,swordfish
+Frank,roller1990
+Nadav,VerySecurePassword
+Zvika,python_god
+Yolo,youonlyliveonce
+AllStar,SomebodyOnceToldMe
+A,1234567A
+B,1234567B
+C,1234567D
+D,1234567D
+E,1234567E

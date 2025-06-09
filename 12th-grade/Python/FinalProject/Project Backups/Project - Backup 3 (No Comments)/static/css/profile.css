@@ -1,0 +1,44 @@
+body {
+	background-image: url("/static/images/Light_Gray.jpg");
+}
+.btn {
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.8vw;
+	color: white;
+}
+.Form_Rect {
+	width: 9vw;
+	height: 5vh;
+	background: white;
+}
+.Form_Text {
+	font-family: Raleway;
+	font-size: 1vw;
+}
+.Hello_Username {
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 4vw;
+	color: white;
+}
+.QRCode_Rect {
+	border: solid 3px black;
+	width: 10.5vw;
+	height: 21vh;
+	margin: auto;
+	background: white;
+	z-index: -1;
+}
+.img_select {
+	width: 18vw;
+	height: 20vh;
+	cursor: pointer;
+	background-repeat: no-repeat;
+}
+.Active_Border {
+	outline: 3px solid white;
+	outline-offset: -3px;
+}

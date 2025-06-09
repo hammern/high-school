@@ -1,0 +1,17 @@
+https://stackoverflow.com/questions/32416646/using-flask-socketio-with-flask-login-and-http-basic-auth
+
+https://flask-login.readthedocs.io/en/latest/
+https://flask-login.readthedocs.io/en/latest/_modules/flask_login/mixins.html#UserMixin
+
+https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+
+https://pythonbasics.org/flask-login/
+
+https://flask.palletsprojects.com/en/1.1.x/api/
+
+https://flask.palletsprojects.com/en/1.1.x/config/
+
+https://stackoverflow.com/questions/34118093/flask-permanent-session-where-to-define-them
+https://stackoverflow.com/questions/39261260/flask-session-variable-not-persisting-between-requests/39261335
+
+https://pythonbasics.org/flask-cookies/

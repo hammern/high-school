@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/SocketOn.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/EventHandlers.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rooms.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Choose Your Username</h5>
+			</div>
+			<form class="needs-validation" novalidate>
+				<div class="modal-body">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="usernameInput" placeholder="Username" required>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary rounded-pill" id="submitButton">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" style="margin-top: 2.5vh">
+	<div class="row">
+		<div class="col-8">
+			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+			<div class="video-container">
+				<div id="player"></div>
+				<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/LoadPlayer.js') }}"></script>
+				<p class="No_Video">No video is playing</p>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="row" style="width: 27vw;">
+				<div class="col Select_Rect" id="Video History" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="0">
+					<p>Video History</p>
+				</div>
+				<div class="col Select_Rect selected" id="Chat" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="1">
+					<p>Chat</p>
+				</div>
+				<div class="col Select_Rect" id="Users" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="2">
+					<p>Users</p>
+				</div>
+			</div>
+			<div class="row">
+				<div id="carousel" class="carousel" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						<div class="carousel-item">
+							<div class="overflow-auto" style="width: 27vw; height: 67vh; background: black;" id="videoHistory"></div>
+						</div>
+						<div class="carousel-item active">
+							<div class="overflow-auto" style="width: 27vw; height: 59.6vh; background: black;" id="ChatMessages"></div>
+							<div class="row" style="margin-left: 0.05vw">
+								<input type="text" id="MessageBox" placeholder="Type your message here..." class="Message_Box"><br><br>
+								<input type="button" class="btn btn-primary Send_Button_Text" id="MessageButton" onclick="SendChatMessage()" value="Send">
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="overflow-auto" style="width: 27vw; height: 67vh; background: black;" id="UserList"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/AddEventListeners.js') }}"></script>
+
+{% if current_user.is_authenticated %}
+<script>
+var background = '{{ background }}';
+var img_path = "/static/images/" + background;
+document.body.style.backgroundImage = "url(" + img_path + ")";
+</script>
+{% endif %}
+<!-- <div class="iframe-container">
+ <iframe type="text/html" id="ytplayer" width="1280" height="720" src="https://www.youtube.com/embed/2MtOpB5LlUA?modestbranding=1&rel=0&start=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> -->
+{% endblock %}

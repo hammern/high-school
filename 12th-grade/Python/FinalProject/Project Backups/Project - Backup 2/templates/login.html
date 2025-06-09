@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+	<p class="text-center">Login</p>
+	<form class="needs-validation" novalidate>
+		<div class="form-group">
+			<label for="usernameInput">Username</label>
+			<input type="text" class="form-control" id="usernameInput" required>
+			<div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<div class="form-group">
+			<label for="passwordInput">Password</label>
+			<input type="password" class="form-control" id="passwordInput" required>
+			<div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<div class="form-group form-check">
+			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+			<label class="form-check-label" for="exampleCheck1">Remember me</label>
+		</div>
+		<button type="submit" id='submitButton' class="btn btn-primary rounded-pill">Submit</button>
+	</form>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center" id="errorText">Username doesn't exist</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script>
+var socket = io();
+
+socket.on('login error', function(data) {
+	if (data == 'password_error') {
+		document.getElementById('errorText').innerHTML = "Wrong password!";
+	}
+	else if (data == 'username_error') {
+		document.getElementById('errorText').innerHTML = "Username doesn't exist";
+	}
+	$('#exampleModal').modal('toggle')
+});
+socket.on('login successful', function() {
+	window.location.href = "/";
+});
+
+$(document).ready(function(){
+  $("#submitButton").click(function(e){
+	username = $("#usernameInput").val();
+	password = $("#passwordInput").val();
+	if (username != '' && password != '') {
+		socket.emit('Login', {'username': username, 'password': password});
+		e.preventDefault();
+	}
+  });
+});
+
+/*
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+*/
+
+// JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+{% endblock %}

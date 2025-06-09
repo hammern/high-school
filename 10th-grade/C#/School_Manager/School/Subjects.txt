@@ -1,0 +1,6 @@
+Cyber,True,5
+Art,True,10
+Math,False,6
+History,False,3
+Electronics,True,9
+Physics,False,2

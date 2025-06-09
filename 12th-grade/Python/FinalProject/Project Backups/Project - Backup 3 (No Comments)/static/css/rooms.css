@@ -1,0 +1,114 @@
+body {
+	background-image: url("/static/images/Dark.jpg");
+	background-repeat: no-repeat;
+}
+#player {
+	/*
+	margin-top: 2.5vh;
+	margin-left: 1.3vw;
+	*/
+	position: absolute;
+	z-index: 1;
+}
+/*.Black_Screen {
+	margin-top: 2.5vh;
+	margin-left: 1.3vw;
+	width: 66.66vw;
+	height: 74.3vh;
+	position: absolute;
+	background-color: black;
+	
+	text-align: center;
+	line-height: 74.3vh;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 3.75vw;
+	color: rgb(50,50,50);
+}*/
+.No_Video {
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 3.75vw;
+	color: rgb(50,50,50);
+	padding-top: 20%;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+	background-color: black;
+	text-align: center;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.Select_Rect {
+	padding-top: 1vh;
+	background: rgb(117,117,117);
+	cursor: pointer;
+	border: none;
+	text-align: center;
+	white-space: nowrap;
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.5vw;
+	color: rgb(230,230,230);
+}
+.Select_Rect.selected {
+  background: black;
+}
+.selected{
+}
+.Send_Button_Text {
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1vw;
+	color: rgb(230,230,230);
+}
+.Message_Box {
+	width: 22vw;
+	height: 7.5vh;
+	border: none;
+	padding-left: 0.5vw;
+	background-color: rgb(68,68,68);
+	font-family: Raleway;
+	font-weight: normal;
+	font-size: 1.25vw;
+	color: rgb(230,230,230);
+}
+.Message_Text {
+	padding-left: 0.5vw;
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.56vw;
+	color: white;
+}
+.Server_Message_Text {
+	padding-left: 0.5vw;
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.56vw;
+	color: rgb(0,78,146);
+}
+.Video_Thumbnail {
+	margin-top: 0.5vh;
+	margin-left: 0.2vw;
+}
+.Video_History_Text {
+	padding-left: 0.2vw;
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 0.8vw;
+	color: white;
+}
+.Current_User{
+	text-align: center;
+	border-bottom: 3px solid white;
+}

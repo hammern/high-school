@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/SocketOn.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/EventHandlers.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Choose Your Username</h5>
+			</div>
+			<form class="needs-validation" novalidate>
+				<div class="modal-body">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="usernameInput" placeholder="Username" required>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary rounded-pill" id="submitButton">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<input type="url" id="linkBox" placeholder="Enter a video link here..." style="width:350px;"><br><br>
+<input type="button" class="btn btn-primary" id="linkButton" onclick="SendPlayerLink()" value="Enter">
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player"></div>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/LoadPlayer.js') }}"></script>
+
+<input type="text" id="MessageBox" placeholder="Type your message here..." style="width:350px;"><br><br>
+<input type="button" class="btn btn-primary" id="MessageButton" onclick="SendChatMessage()" value="Send">
+<div class="overflow-auto" style="max-width: 720px; max-height: 150px;" id="ChatMessages"></div>
+
+<p class="font-weight-bold">Video History:</p>
+<div class="overflow-auto" style="max-width: 720px; max-height: 360px;" id="videoHistory">
+	<!--<img src="https://img.youtube.com/vi/AWEm4tA2hMc/maxresdefault.jpg" style="max-width: 240px; max-height: 120px;" class="img-thumbnail rounded" alt="Responsive image">
+	<p class="">www.youtube.com/watch?v=AWEm4tA2hMc</p>-->
+</div>
+
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/AddEventListeners.js') }}"></script>
+
+<!-- <div class="iframe-container">
+ <iframe type="text/html" id="ytplayer" width="1280" height="720" src="https://www.youtube.com/embed/2MtOpB5LlUA?modestbranding=1&rel=0&start=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> -->
+{% endblock %}

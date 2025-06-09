@@ -1,0 +1,89 @@
+.gradiant {
+	background-image: linear-gradient(360deg, rgba(0,0,0,0.6), rgba(0,0,0,0));
+	max-width: fit-content;
+}
+.Translucent_Black_Square {
+	position: absolute;
+	width: 35vw;
+	height: 70vh;
+	background: rgba(0,0,0,0.4);
+	text-align: center;	
+	margin-top: 3%;
+	margin-left: 20%;
+}
+.Watch_Together {
+	text-shadow: 0px 10px rgb(0,78,146);
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 4vw;
+	color: white;
+}
+.Listen_Together {
+	text-shadow: 0px 10px rgb(5,40,82);
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 4vw;
+	color: white;
+}
+.Enjoy_Together {
+	text-shadow: 0px 10px rgb(10,21,40);
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 4vw;
+	color: white;
+}
+.Watch_YouTube_videos {
+	overflow: visible;
+	text-align: center;
+	font-family: Segoe UI;
+	font-size: 2.1vw;
+	color: white;
+}
+.Create_Room_Button {
+	width: 25vw;
+	height: 10vh;
+	background: rgb(0,78,146);
+	border: none;
+	line-height: 0px;
+	padding-bottom: 10px;
+	
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 4vw;
+	color: white;
+}
+.Behind_About_us {
+	border-radius: 7%;
+	width: 53vw;
+	background: rgba(0,0,0,0.15);
+	text-align: center;
+}
+.About_Us {
+	font-family: Raleway;
+	font-size: 1.7vw;
+	color: black;
+	padding-top: 36px;
+}
+.Line {
+	width: 20vw;
+	height: 0.4vh;
+	background: rgb(0,78,146);
+	margin: auto;
+}
+.Our_goal_is_to_help {
+	padding-top: 2vh;
+	font-family: Raleway;
+	font-size: 1.35vw;
+	color: black;
+}
+.So_What_are_you_waiting_for {
+	font-family: Raleway;
+	font-size: 3.6vw;
+	color: rgb(0,78,146);
+	margin-top: 5vh;
+}
+.remote_gradiant {
+	background-image: linear-gradient(360deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
+	max-width: fit-content;
+	border-radius: 2.225vw;
+}

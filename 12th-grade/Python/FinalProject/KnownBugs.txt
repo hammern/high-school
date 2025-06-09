@@ -1,0 +1,21 @@
+✓ Infinite loop is caused by a client receiving an event after sending one himself
+Fixed by adding a variable named ignore_next_event
+
+✓ When changing the time of the video while the video is paused time doesn't sync
+
+x Arrow keys cause desynchronization (holding the keys causes this)
+
+x (needs testing) when clicking on a video in more videos other players will not switch video
+
+x When new user joins time is reset for current users
+
+x When new user joins the room, video is not same video if already in-room users changed the video
+
+✓ If you press pause on one user and then play on different user the first user doesn't receive an event
+Fixed by changing synchronization method to a general server state
+
+x Sending an incorrect youtube link causes the player to display an error
+
+x (needs testing) Sending a non-youtube link
+
+x Inputting an incorrect link creates a wrong entry in the video history

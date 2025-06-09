@@ -1,0 +1,319 @@
+.mediaViewInfo {
+	--web-view-name: First Page;
+	--web-view-id: First_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: First_Page;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#First_Page {
+	position: absolute;
+	width: 1920px;
+	height: 1743px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: First Page;
+	--web-view-id: First_Page;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#Picture_of_Us {
+	position: absolute;
+	width: 1920.002px;
+	height: 805px;
+	left: 0px;
+	top: 95px;
+	overflow: visible;
+}
+#Gradient_i {
+	fill: url(#Gradient_i);
+}
+.Gradient_i {
+	position: absolute;
+	overflow: visible;
+	width: 1920.002px;
+	height: 900px;
+	left: 0px;
+	top: 0px;
+}
+#Translucent_Black_Square {
+	fill: rgba(0,0,0,0.412);
+}
+.Translucent_Black_Square {
+	position: absolute;
+	overflow: visible;
+	width: 646px;
+	height: 633px;
+	left: 283px;
+	top: 134px;
+}
+#Watch_Together {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 339.49px;
+	top: 187px;
+	position: absolute;
+	overflow: visible;
+	width: 536px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(0,78,146,1);
+}
+#Listen_Together {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 347.496px;
+	top: 316px;
+	position: absolute;
+	overflow: visible;
+	width: 520px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(5,40,82,1);
+}
+#Enjoy_Together {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 354.501px;
+	top: 446px;
+	position: absolute;
+	overflow: visible;
+	width: 506px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(10,21,40,1);
+}
+#Watch_Together_n {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 339.49px;
+	top: 177px;
+	position: absolute;
+	overflow: visible;
+	width: 536px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(255,255,255,1);
+}
+#Listen_Together_o {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 347.496px;
+	top: 306px;
+	position: absolute;
+	overflow: visible;
+	width: 520px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(255,255,255,1);
+}
+#Enjoy_Together_p {
+	filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.561));
+	left: 354.501px;
+	top: 436px;
+	position: absolute;
+	overflow: visible;
+	width: 506px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 77px;
+	color: rgba(255,255,255,1);
+}
+#Watch_YouTube_videos_together_ {
+	left: 365.508px;
+	top: 599px;
+	position: absolute;
+	overflow: visible;
+	width: 483px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 41px;
+	color: rgba(255,255,255,1);
+}
+#Behind_About_us {
+	fill: rgba(0,0,0,0.141);
+}
+.Behind_About_us {
+	position: absolute;
+	overflow: visible;
+	width: 1026px;
+	height: 809px;
+	left: 728px;
+	top: 920px;
+}
+#About_Us {
+	left: 1169.317px;
+	top: 948.76px;
+	position: absolute;
+	overflow: visible;
+	width: 145px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 33px;
+	color: rgba(0,0,0,1);
+}
+#Line_1 {
+	fill: transparent;
+	stroke: rgba(0,78,146,1);
+	stroke-width: 4px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Line_1 {
+	overflow: visible;
+	position: absolute;
+	width: 321.951px;
+	height: 4px;
+	left: 1079.851px;
+	top: 994.536px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Our_goal_is_to_help_you_have_f {
+	left: 751px;
+	top: 1022px;
+	position: absolute;
+	overflow: visible;
+	width: 981px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	color: rgba(0,0,0,1);
+}
+#Remote_Picture {
+	position: absolute;
+	width: 532px;
+	height: 797px;
+	left: 168.5px;
+	top: 920px;
+	overflow: visible;
+}
+#Gradient_Remote_x {
+	fill: url(#Gradient_Remote_x);
+}
+.Gradient_Remote_x {
+	position: absolute;
+	overflow: visible;
+	width: 532px;
+	height: 797px;
+	left: 168.5px;
+	top: 920px;
+}
+#So_What_are_you_waiting_for {
+	left: 775px;
+	top: 1488px;
+	position: absolute;
+	overflow: visible;
+	width: 933px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 69px;
+	color: rgba(0,78,146,1);
+}
+#Nav_Bar {
+	fill: rgba(227,227,227,1);
+}
+.Nav_Bar {
+	position: absolute;
+	overflow: visible;
+	width: 1920.002px;
+	height: 95px;
+	left: 0px;
+	top: 0px;
+}
+#Login_Pill_Box {
+	fill: rgba(0,78,146,1);
+}
+.Login_Pill_Box {
+	position: absolute;
+	overflow: visible;
+	width: 132px;
+	height: 46px;
+	left: 1630px;
+	top: 25px;
+}
+#Login {
+	left: 1672px;
+	top: 35px;
+	position: absolute;
+	overflow: visible;
+	width: 50px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Sign_Up_Pill_Box {
+	fill: rgba(0,78,146,1);
+}
+.Sign_Up_Pill_Box {
+	position: absolute;
+	overflow: visible;
+	width: 132px;
+	height: 46px;
+	left: 1477.653px;
+	top: 25px;
+}
+#Sign_Up {
+	left: 1508.631px;
+	top: 35px;
+	position: absolute;
+	overflow: visible;
+	width: 71px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+#Logo {
+	position: absolute;
+	width: 320px;
+	height: 76px;
+	left: 160px;
+	top: 11px;
+	overflow: visible;
+}

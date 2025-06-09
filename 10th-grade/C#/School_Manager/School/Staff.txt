@@ -1,0 +1,3 @@
+Yosi,J,567,70,11/02/2019,17,Janitor
+Sali,S,456,75,21/12/2010,40,Secretery
+Robeus,Hagrid,192837,400,01/01/2018,56,Guard

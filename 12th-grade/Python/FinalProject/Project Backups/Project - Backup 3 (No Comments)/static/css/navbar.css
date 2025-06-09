@@ -1,0 +1,42 @@
+.navbar-custom {
+	width: 100vw;
+	background-color: rgb(227,227,227);
+}
+.Pill_Box {
+	width: 7vw;
+	height: 5vh;
+	background: rgb(0,78,146);
+	text-align: center;
+	padding-top: 6px;
+	
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.05vw;
+	color: white;
+}
+.Link_Box {
+	width: 28vw;
+	height: 3.6vh;
+	border: none;
+	padding-left: 10px;
+	background-color: rgb(117,117,117);
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.05vw;
+	color: rgb(230,230,230);
+}
+::placeholder {
+	color: rgb(230,230,230);
+}
+.Enter_Button {
+	width: 4vw;
+	height: 5vh;
+	background: rgb(0,78,146);
+	border: none;
+	text-align: center;
+	
+	font-family: Segoe UI;
+	font-weight: normal;
+	font-size: 1.05vw;
+	color: white;
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col text-center">
+			<button type="button" class="btn btn-lg btn-outline-primary rounded-pill" onclick="CreateRoom()">Create Room</button>
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script>
+var socket = io();
+socket.on('Join Room', function(roomId) {
+	window.location.href = "/rooms/" + roomId;
+	document.cookie = "roomId=" + roomId + "; path=/rooms"
+});
+
+function CreateRoom() {
+	socket.emit('Create Room');
+}
+</script>
+{% endblock %}

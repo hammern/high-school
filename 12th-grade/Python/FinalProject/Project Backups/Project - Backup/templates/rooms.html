@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/SocketOn.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/EventHandlers.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<input type="text" id="linkBox"><br><br>
+<input type="button" class="btn btn-primary" id="linkButton" onclick="SendPlayerLink()" value="Enter">
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player"></div>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/LoadPlayer.js') }}"></script>
+
+<input type="text" id="MessageBox"><br><br>
+<input type="button" class="btn btn-primary" id="MessageButton" onclick="SendChatMessage()" value="Send">
+<div class="overflow-auto" style="max-width: 1280px; max-height: 100px;" id="ChatMessages"></div>
+
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/AddEventListeners.js') }}"></script>
+
+<!-- <div class="iframe-container">
+ <iframe type="text/html" id="ytplayer" width="1280" height="720" src="https://www.youtube.com/embed/2MtOpB5LlUA?modestbranding=1&rel=0&start=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> -->
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock %}
+{% block body %}
+    {% for key, value in countries.items() %}
+        <a href="{{ url_for('view', location=key) }}"> {{key}} </a><br>
+    {% endfor %}
+{% endblock %}

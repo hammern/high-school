@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/SocketOn.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/EventHandlers.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rooms.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Choose Your Username</h5>
+			</div>
+			<form class="needs-validation" novalidate>
+				<div class="modal-body">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="usernameInput" placeholder="Username" required>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary rounded-pill" id="submitButton">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<button class="invisible" id="ToggleMultiCollapseBtn" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="VideoLogCollapse ChatCollapse" style="top: 0px; left: 0px;"></button>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<div class="Black_Screen"><p>No video is playing</p></div>
+			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+			<div id="player"></div>
+			<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/LoadPlayer.js') }}"></script>
+		</div>
+		<div class="col" style="margin-top: 25px;">
+			<div class="row" style="width: 520px;">
+				<!--
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-primary Select_Rect">
+						<input type="radio" name="options" id="Video History" onclick="ChangeButtonSelection(this.id)"> Video History
+					</label>
+					<label class="btn btn-primary Select_Rect active">
+						<input type="radio" name="options" id="Chat" onclick="ChangeButtonSelection(this.id)" checked> Chat
+					</label>
+					<label class="btn btn-primary Select_Rect">
+						<input type="radio" name="options" id="Users" onclick="ChangeButtonSelection(this.id)"> Users
+					</label>
+				</div>
+				-->
+				
+				<!--
+				https://stackoverflow.com/questions/31178653/how-to-keep-active-css-style-after-click-a-button
+				
+				<div class="col">
+					<button type="button" id="Video History" class="Select_Rect" onclick="ChangeButtonSelection(this.id)" style="white-space: nowrap;">Video History</button>
+				</div>
+				<div class="col">
+					<button type="button" id="Chat" class="Select_Rect selected" onclick="ChangeButtonSelection(this.id)">Chat</button>
+				</div>
+				<div class="col">
+					<button type="button" id="Users" class="Select_Rect" onclick="ChangeButtonSelection(this.id)">Users</button>
+				</div>
+				-->
+				
+				<div class="col Select_Rect" id="Video History" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="0">
+					<p>Video History</p>
+				</div>
+				<div class="col Select_Rect selected" id="Chat" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="1">
+					<p>Chat</p>
+				</div>
+				<!--
+				<div class="col Select_Rect" id="Users" onclick="ChangeButtonSelection(this.id)" data-target="#carousel" data-slide-to="2">
+					<p>Users</p>
+				</div>
+				-->
+			</div>
+			<div class="row">
+				<div id="carousel" class="carousel" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						<div class="carousel-item">
+							<div class="overflow-auto" style="width: 520px; height: 651px; background: black;" id="videoHistory"></div>
+						</div>
+						<div class="carousel-item active">
+							<div class="accordion" id="accordionExample">
+								<div onclick="ToggleMultiCollapse()" style="background: rgb(0,78,146);">
+									<div class="row">
+										<div class="col d-flex justify-content-center">
+											<p style="font-family: Segoe UI; font-weight: normal; font-size: 15px; color: white; padding-top: 13px;">User<p>
+										</div>
+										<div class="col d-flex justify-content-center">
+											<p style="font-family: Segoe UI; font-weight: normal; font-size: 15px; color: white; padding-top: 13px;">Player State:<p>
+											<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16" style="padding-top:19px; color: white;">
+												<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+											</svg>
+											
+											<!--
+											<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+												<path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+											</svg>
+											-->
+										</div>
+										<div class="col-2 d-flex justify-content-center">
+											<svg id="DownArrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16" style="margin-top: 17px; color: white;">
+												<path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+											</svg>
+										</div>
+									</div>
+									<div id="VideoLogCollapse" class="collapse multi-collapse" data-parent="#accordionExample">
+										<div class="overflow-auto" style="width: 520px; height: 578px; background: black;" id="VideoLog"></div>
+									</div>
+								</div>
+								<div id="ChatCollapse" class="collapse multi-collapse show" data-parent="#accordionExample">
+									<div class="overflow-auto" style="width: 520px; height: 578px; background: black;" id="ChatMessages"></div>
+								</div>
+							</div>
+
+							<div class="row" style="margin-left: 1px">
+								<input type="text" id="MessageBox" placeholder="Type your message here..." class="Message_Box"><br><br>
+								<input type="button" class="btn btn-primary Send_Button_Text" id="MessageButton" onclick="SendChatMessage()" value="Send">
+							</div>
+						</div>
+						<!--
+						<div class="carousel-item">
+							<div class="overflow-auto" style="width: 520px; height: 600px; background: black;" id="UserList"></div>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/AddEventListeners.js') }}"></script>
+
+<!-- <div class="iframe-container">
+ <iframe type="text/html" id="ytplayer" width="1280" height="720" src="https://www.youtube.com/embed/2MtOpB5LlUA?modestbranding=1&rel=0&start=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div> -->
+{% endblock %}
